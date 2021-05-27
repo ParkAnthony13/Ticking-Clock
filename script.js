@@ -12,6 +12,7 @@ setInterval( function() {
     var min = new Date().getMinutes()+30;
     console.log(min);
     var sec = new Date().getSeconds()+30;
+    console.log(sec);
 
     document.querySelector("#hour").style.transform = "rotate("+(hour*30)+"deg)";
     document.querySelector("#minutes").style.transform = "rotate("+(min*6)+"deg)";
@@ -19,7 +20,7 @@ setInterval( function() {
 
     var sHour = hour.toString();
     var sMin = min.toString();
-    var sSec = sec.toString();
+    var sSec = (sec-(hour*3600+min*60)).toString();
     if (sHour.length < 2) {
         document.querySelector(".hr").innerHTML = "0"+hour-30;
     } else {
@@ -30,8 +31,8 @@ setInterval( function() {
     } else {
         document.querySelector(".min").innerHTML = min-30;
     }
-    if (sSec.length < 2) {
-        document.querySelector(".sec").innerHTML = "0"+sec-30;
+    if (sec < 40) { /* because we add 30 to seconds, 60 seconds in a minute ranges from 30seconds to 90seconds. It is always 2 digits, so condition checks <40 because 39 (or 09) is the last single digit second */
+        document.querySelector(".sec").innerHTML = "0"+(sec-30);
     } else {
         document.querySelector(".sec").innerHTML = sec-30;
     }
