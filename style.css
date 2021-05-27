@@ -1,7 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Share Tech Mono', monospace;
     /* outline: 1px dotted red; */
 }
 .container{
@@ -50,17 +50,23 @@
     transform: rotate(180deg);
 }
 .digital {
-    width: 40%;
+    width: 660px;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: black;
     color:white;
     border: 5px groove gray;
     font-size: 500%;
     position: relative;
     top: 10%;
-    left: 28%;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 5% 0px;
-    padding: 2%;
+    padding: 2% 5%;
+}
+.digital p {
+    text-align: center;
+    margin: 1.7%;
 }

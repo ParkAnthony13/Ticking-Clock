@@ -6,13 +6,13 @@ function getSecondsSinceStartOfDay() {
 
 setInterval( function() {
     var time = getSecondsSinceStartOfDay();
-    console.log(time);
+    // console.log(time);
     var hour = new Date().getHours()+30;
-    console.log(hour);
+    // console.log(hour);
     var min = new Date().getMinutes()+30;
     console.log(min);
     var sec = new Date().getSeconds()+30;
-    console.log(sec);
+    // console.log(sec);
 
     document.querySelector("#hour").style.transform = "rotate("+(hour*30)+"deg)";
     document.querySelector("#minutes").style.transform = "rotate("+(min*6)+"deg)";
@@ -26,7 +26,7 @@ setInterval( function() {
     } else {
         document.querySelector(".hr").innerHTML = hour-30;
     }
-    if (sMin.length < 2) {
+    if (min < 40) {
         document.querySelector(".min").innerHTML = "0"+min-30;
     } else {
         document.querySelector(".min").innerHTML = min-30;
@@ -37,3 +37,16 @@ setInterval( function() {
         document.querySelector(".sec").innerHTML = sec-30;
     }
 }, 1000);
+
+setInterval( function() {
+    var milisecond = new Date().getMilliseconds();
+    console.log(milisecond);
+    var sMilisecond = milisecond.toString();
+    if (sMilisecond == 2) {
+        document.querySelector(".mili").innerHTML = "0" + milisecond;
+    } else if (sMilisecond == 1) {
+        document.querySelector(".mili").innerHTML = "00" + milisecond;
+    } else {
+        document.querySelector(".mili").innerHTML = milisecond;
+    }
+}, 1);
